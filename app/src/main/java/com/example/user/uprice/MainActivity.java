@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity
             public void onResponse(Call call, Response response) throws IOException {
                 String str = response.body().string();
                 Log.e("123",str.length()+"");
-                for(int i=0;i<str.length()-100;i++){
+                /*for(int i=0;i<str.length()-100;i++){
                     char[] chars1 = new char[] {};
                     String product="<產品名稱>";
                     String get="";
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
                         }
                         Log.e("response ", "onResponse(): " + out );
                     }
-                }
+                }*/
             }
         });
 
@@ -143,9 +143,13 @@ public class MainActivity extends AppCompatActivity
                             new OilPriceFragment()).commit();
 
         } else if (id == R.id.nav_GasStation) {
-
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_main,
+                            new GasStationFragment()).commit();
         } else if (id == R.id.nav_Setting) {
-
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_main,
+                            new SettingFragment()).commit();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
