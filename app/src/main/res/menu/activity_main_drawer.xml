@@ -3,21 +3,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_PersonalGarage"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="個人車庫" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_OilPrice"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="油價查詢" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_GasStation"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="加油站" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_Setting"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="設定" />
     </group>
 
     <item android:title="Communicate">
