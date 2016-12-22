@@ -12,6 +12,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.user.uprice.xmltojsonlib.XmlToJson;
+
+import org.json.JSONObject;
+
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -32,7 +36,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -71,8 +74,22 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String str = response.body().string();
-                Log.e("123",str.length()+"");
-                /*for(int i=0;i<str.length()-100;i++){
+                Log.e("Response",str.length()+"");
+                XmlToJson xmlToJson = new XmlToJson.Builder(str).build();
+                JSONObject jsonObject = xmlToJson.toJson();
+                // convert to a Json String
+                String jsonString = xmlToJson.toString();
+                // convert to a formatted Json String
+                String formatted = xmlToJson.toFormattedString();
+
+                Log.d("JSON", "jsonObject:" + jsonObject.toString());
+                Log.d("JSON", "jsonString:" + jsonString);
+                Log.d("JSON", "formatted:" + formatted);
+
+
+
+                /*        Log.e("123",str.length()+"");
+                for(int i=0;i<str.length()-100;i++){
                     char[] chars1 = new char[] {};
                     String product="<產品名稱>";
                     String get="";
@@ -141,7 +158,6 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.content_main,
                             new OilPriceFragment()).commit();
-
         } else if (id == R.id.nav_GasStation) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_main,
@@ -150,11 +166,11 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.content_main,
                             new SettingFragment()).commit();
-        } else if (id == R.id.nav_share) {
+        } /*else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
