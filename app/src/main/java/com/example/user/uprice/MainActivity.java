@@ -13,10 +13,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.user.uprice.xmltojsonlib.XmlToJson;
+<<<<<<< HEAD
 import com.novoda.sax.RootElement;
 import com.novoda.sexp.RootTag;
 import com.novoda.sexp.Streamer;
 import com.novoda.sexp.finder.ElementFinder;
+=======
+>>>>>>> refs/remotes/fang0975/master
 
 import org.json.JSONObject;
 
@@ -43,7 +46,10 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/fang0975/master
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -81,7 +87,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String str = response.body().string();
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/fang0975/master
                 Log.e("Response",str.length()+"");
                 XmlToJson xmlToJson = new XmlToJson.Builder(str).build();
                 JSONObject jsonObject = xmlToJson.toJson();
@@ -89,6 +98,7 @@ public class MainActivity extends AppCompatActivity
                 String jsonString = xmlToJson.toString();
                 // convert to a formatted Json String
                 String formatted = xmlToJson.toFormattedString();
+<<<<<<< HEAD
                 /*JSONObject jsonObj = null;
                 try {
                     jsonObj = XML.toJSONObject(str);
@@ -97,11 +107,37 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
 */
+=======
+>>>>>>> refs/remotes/fang0975/master
 
                 Log.d("JSON", "jsonObject:" + jsonObject.toString());
                 Log.d("JSON", "jsonString:" + jsonString);
                 Log.d("JSON", "formatted:" + formatted);
 
+<<<<<<< HEAD
+=======
+
+
+                /*        Log.e("123",str.length()+"");
+                for(int i=0;i<str.length()-100;i++){
+                    char[] chars1 = new char[] {};
+                    String product="<產品名稱>";
+                    String get="";
+                    for(int j=i;j<=i+5;j++){
+                        get+=str.charAt(j);
+                    }
+                    Log.e("123",get);
+                    Log.e("456",product);
+                    Log.e("  ","\n");
+                    if(get == product){
+                        String out="";
+                        for(int k=i+6;k<=i+13;k++){
+                            out+=str.charAt(k);
+                        }
+                        Log.e("response ", "onResponse(): " + out );
+                    }
+                }*/
+>>>>>>> refs/remotes/fang0975/master
             }
         });
 
@@ -179,16 +215,28 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.content_main,
                             new OilPriceFragment()).commit();
+<<<<<<< HEAD
 
         } else if (id == R.id.nav_GasStation) {
 
         } else if (id == R.id.nav_Setting) {
 
         } else if (id == R.id.nav_share) {
+=======
+        } else if (id == R.id.nav_GasStation) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_main,
+                            new GasStationFragment()).commit();
+        } else if (id == R.id.nav_Setting) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_main,
+                            new SettingFragment()).commit();
+        } /*else if (id == R.id.nav_share) {
+>>>>>>> refs/remotes/fang0975/master
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

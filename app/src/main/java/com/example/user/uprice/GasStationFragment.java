@@ -11,17 +11,13 @@ import android.view.ViewGroup;
  * Created by user on 2016/12/21.
  */
 
-public class PersonalGarageFragment extends Fragment{
+public class GasStationFragment extends Fragment{
     View myView;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.personalgarage_layout, container , false);
-        getActivity().setTitle("個人車庫");
+        myView = inflater.inflate(R.layout.gasstation_layout, container , false);
+        getActivity().setTitle("加油站");
         return myView;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/fang0975/master
 }
