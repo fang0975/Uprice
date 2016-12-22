@@ -10,4 +10,5 @@
         android:id="@+id/tv_gasstation"
         android:text="gasstation"
         android:textSize="30dp"/>
+
 </RelativeLayout>
