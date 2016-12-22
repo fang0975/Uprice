@@ -37,9 +37,5 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.3.1'
     compile 'com.squareup.okhttp3:okhttp-urlconnection:3.3.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
-<<<<<<< HEAD
-    compile 'com.novoda:sexp:1.0.8'
-=======
->>>>>>> refs/remotes/fang0975/master
     testCompile 'junit:junit:4.12'
 }
