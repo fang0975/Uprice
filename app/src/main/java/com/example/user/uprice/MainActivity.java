@@ -26,17 +26,18 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     public static final MediaType MEDIA_TYPE_MARKDOWN
             = MediaType.parse("application/soap+xml; charset=utf-8");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -86,27 +87,6 @@ public class MainActivity extends AppCompatActivity
                 Log.d("JSON", "jsonString:" + jsonString);
                 Log.d("JSON", "formatted:" + formatted);
 
-
-
-                /*        Log.e("123",str.length()+"");
-                for(int i=0;i<str.length()-100;i++){
-                    char[] chars1 = new char[] {};
-                    String product="<產品名稱>";
-                    String get="";
-                    for(int j=i;j<=i+5;j++){
-                        get+=str.charAt(j);
-                    }
-                    Log.e("123",get);
-                    Log.e("456",product);
-                    Log.e("  ","\n");
-                    if(get == product){
-                        String out="";
-                        for(int k=i+6;k<=i+13;k++){
-                            out+=str.charAt(k);
-                        }
-                        Log.e("response ", "onResponse(): " + out );
-                    }
-                }*/
             }
         });
 
@@ -167,6 +147,7 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.content_main,
                             new SettingFragment()).commit();
         } /*else if (id == R.id.nav_share) {
+>>>>>>> refs/remotes/fang0975/master
 
         } else if (id == R.id.nav_send) {
 

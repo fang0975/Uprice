@@ -20,5 +20,4 @@ public class PersonalGarageFragment extends Fragment{
         getActivity().setTitle("個人車庫");
         return myView;
     }
-
 }
