@@ -136,7 +136,7 @@ public class OilPriceFragment extends Fragment {
                         textView_oil10.setText(price);
                     }
 
-                    Log.d("JSON", name + " = " + price);
+                    //Log.d("JSON", name + " = " + price);
 
                 }
                 //Log.d("JSON",tmp.toString());

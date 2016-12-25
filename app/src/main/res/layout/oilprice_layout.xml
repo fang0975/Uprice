@@ -1,110 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/tv_oilname1"
-        android:text="oil1"
-        android:textSize="30dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="50dp"
+        android:text="oil1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="26dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:id="@+id/tv_oilname2"
-        android:text="oil2"
-        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_oilname1"
         android:layout_below="@+id/tv_oilname1"
-        android:layout_alignStart="@+id/tv_oilname1"/>
+        android:layout_marginTop="50dp"
+        android:text="oil2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="26dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_oilname2"
-        android:layout_alignStart="@+id/tv_oilname2"
-        android:layout_marginTop="50dp"
         android:id="@+id/tv_oilname3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_oilname2"
+        android:layout_below="@+id/tv_oilname2"
+        android:layout_marginTop="50dp"
         android:text="oil3"
-        android:textSize="30dp"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="26dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_oilname3"
-        android:layout_alignStart="@+id/tv_oilname3"
-        android:layout_marginTop="50dp"
         android:id="@+id/tv_oilname4"
-        android:text="oil4"
-        android:textSize="30dp"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_oilname4"
-        android:layout_alignStart="@+id/tv_oilname4"
+        android:layout_alignStart="@+id/tv_oilname3"
+        android:layout_below="@+id/tv_oilname3"
         android:layout_marginTop="50dp"
-        android:id="@+id/tv_oilname5"
-        android:text="oil5"
-        android:textSize="30dp"/>
+        android:text="oil4"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="26dp"/>
 
     <TextView
-        android:text="TextView"
+        android:id="@+id/tv_oilname5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_oilname4"
+        android:layout_below="@+id/tv_oilname4"
+        android:layout_marginTop="50dp"
+        android:text="oil5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="26dp"/>
+
+    <TextView
+        android:id="@+id/tv_oilprice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_oilname1"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="80dp"
-        android:id="@+id/tv_oilprice1"
-        android:textSize="20dp"/>
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24dp"
+        android:textStyle="normal|bold"/>
 
     <TextView
-        android:text="TextView"
+        android:id="@+id/tv_oilprice2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_oilname2"
         android:layout_alignStart="@+id/tv_oilprice1"
-        android:id="@+id/tv_oilprice2"
-        android:textSize="20dp"/>
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24dp"
+        android:textStyle="normal|bold"/>
 
     <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_oilname4"
-        android:layout_alignStart="@+id/tv_oilprice2"
-        android:id="@+id/tv_oilprice3"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_oilname5"
-        android:layout_alignStart="@+id/tv_oilprice3"
-        android:id="@+id/tv_oilprice4"
-        android:textSize="20dp"/>
-
-    <TextView
-        android:text="TextView"
+        android:id="@+id/tv_oilprice5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/tv_oilname5"
         android:layout_alignStart="@+id/tv_oilprice4"
-        android:id="@+id/tv_oilprice5"
-        android:textSize="20dp"/>
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24dp"
+        android:textStyle="normal|bold"/>
 
     <TextView
-        android:text=""
+        android:id="@+id/tv_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="17dp"
-        android:id="@+id/tv_update"/>
+        android:text=""/>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_oilname2"
+        android:layout_alignStart="@+id/imageView2"
+        app:srcCompat="@drawable/ic_local_gas_station_black_24dp"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_oilname3"
+        android:layout_alignStart="@+id/imageView3"
+        app:srcCompat="@drawable/ic_local_gas_station_black_24dp"
+        />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_oilname4"
+        android:layout_alignStart="@+id/imageView4"
+        app:srcCompat="@drawable/ic_local_gas_station_black_24dp"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_oilname5"
+        android:layout_alignStart="@+id/imageView5"
+        app:srcCompat="@drawable/ic_local_gas_station_black_24dp"/>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_oilname5"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        app:srcCompat="@drawable/ic_local_gas_station_black_24dp"/>
+
+    <TextView
+        android:id="@+id/tv_oilprice4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_oilname5"
+        android:layout_alignStart="@+id/tv_oilprice3"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24dp"
+        android:textStyle="normal|bold"/>
+
+    <TextView
+        android:id="@+id/tv_oilprice3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tv_oilprice2"
+        android:layout_alignTop="@+id/tv_oilname3"
+        android:text="TextView"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24dp"
+        android:textStyle="normal|bold"/>
+
 </RelativeLayout>
