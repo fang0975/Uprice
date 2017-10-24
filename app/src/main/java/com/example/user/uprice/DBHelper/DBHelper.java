@@ -5,25 +5,37 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by fang on 2016/12/24.
+ * Created by Bob on 2016/11/14.
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-    public DBHelper(Context context, String dbName, int version){
-        super (context, dbName, null, version);
+
+    private static DBHelper instance = null;
+
+    public static DBHelper getInstance(Context context, String name, int version){
+        if(instance == null) {
+            instance = new DBHelper(context, name, null, version);
+        }
+        return instance;
+    }
+
+    private DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
+        super(context, name, factory, version);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table apps(_id integer primary key autoincrement, name text , product text , number text ,"
-                 +
-                " date text, created_date datetime default current_timestamp);");
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        sqLiteDatabase.execSQL("create table contacts" +
+            "(_id INTEGER PRIMARY KEY NOT NULL, name VARCHAR, product VARCHAR, number VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+        );
+
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        onCreate(db);
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        onCreate(sqLiteDatabase);
     }
+
     public void onDropTable(SQLiteDatabase db){
         db.execSQL("drop table if exists apps");
     }

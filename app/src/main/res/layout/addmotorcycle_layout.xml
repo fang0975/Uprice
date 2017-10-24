@@ -98,18 +98,29 @@
 
     <Button
         android:text="OK"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_x="193dp"
-        android:layout_y="463dp"
+        android:layout_x="-1dp"
+        android:layout_y="387dp"
         android:id="@+id/OK" />
 
     <Button
         android:text="Cancel"
-        android:layout_width="190dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_x="0dp"
-        android:layout_y="463dp"
+        android:layout_y="445dp"
         android:id="@+id/cancel" />
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_x="0dp"
+        android:layout_y="-2dp"
+        android:id="@+id/toolbar3"
+        app:title="Information" />
 
 </AbsoluteLayout>

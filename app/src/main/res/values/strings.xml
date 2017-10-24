@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Uprice</string>
-
+    <string name="app_name2">Information</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -424,4 +424,5 @@
     "卓溪鄉": "982"
   }
 }</string>
+    <string name="title_activity_iformation">Iformation</string>
 </resources>

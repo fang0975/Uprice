@@ -1,6 +1,9 @@
 package com.example.user.uprice;
 
 import android.app.FragmentManager;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,11 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
-import com.example.user.uprice.DBHelper.IforFragment;
+import com.example.user.uprice.DBHelper.Information;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-                             PersonalGarageFragment.OnFragmentInteractionListener, IforFragment.OnFragmentInteractionListener{
+                             PersonalGarageFragment.OnFragmentInteractionListener{
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 
@@ -62,6 +71,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+           // iFrag.writeToDB();
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.content_main,
+                            new PersonalGarageFragment()).commit();
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -74,7 +88,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         FragmentManager fragmentManager = getFragmentManager();
         if (id == R.id.nav_PersonalGarage) {
-            fragmentManager.beginTransaction().replace(R.id.content_main, new PersonalGarageFragment()).commit();
+            startActivity(new Intent(MainActivity.this, Information.class));
+
+            //fragmentManager.beginTransaction().replace(R.id.content_main, new PersonalGarageFragment()).commit();
         } else if (id == R.id.nav_OilPrice) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new OilPriceFragment()).commit();
         } else if (id == R.id.nav_GasStation) {
@@ -92,10 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    @Override
-    public void onFragmentVInteraction(String str) {
 
-    }
 
     @Override
     public void onFragmentPInteraction(String str) {

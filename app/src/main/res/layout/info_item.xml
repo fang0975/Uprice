@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
@@ -13,33 +13,43 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/info_item_date"
-        android:textSize="30sp"
-        android:layout_width="200dp"
-        android:layout_below="@+id/info_item_name"
         android:layout_alignParentStart="true"
-        android:layout_height="30dp" />
-
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/info_item_number"
-        android:textSize="30sp"
-        android:layout_height="30dp"
-        android:layout_width="120dp"
-        android:layout_alignTop="@+id/price_title"
-        android:layout_alignParentEnd="true" />
+        android:layout_x="2dp"
+        android:layout_y="4dp" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/price_title"
         android:textSize="20sp"
-        android:layout_height="30dp"
         android:layout_width="50dp"
-        android:text="車牌"
+        android:text="車牌:"
         app:textAllCaps="false"
         android:textColor="@android:color/holo_orange_light"
-        android:layout_alignBottom="@+id/info_item_date"
-        android:layout_toStartOf="@+id/info_item_number"
-        android:layout_marginBottom="19dp" />
-</RelativeLayout>
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/info_item_name"
+        android:layout_height="50dp"
+        android:layout_x="208dp"
+        android:layout_y="1dp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/info_item_date"
+        android:textSize="30sp"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_below="@+id/info_item_name"
+        android:layout_alignParentStart="true"
+        android:layout_x="5dp"
+        android:layout_y="30dp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/info_item_number"
+        android:textSize="30sp"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="31dp"
+        android:layout_x="207dp"
+        android:layout_y="20dp" />
+</AbsoluteLayout>
