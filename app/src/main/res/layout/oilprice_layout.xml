@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="39dp"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="70dp"
         android:text="oil1"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="26dp"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tv_oilname1"
         android:layout_below="@+id/tv_oilname1"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:text="oil2"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="26dp"/>
@@ -33,10 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tv_oilname2"
         android:layout_below="@+id/tv_oilname2"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:text="oil3"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textSize="26dp"/>
+        android:textSize="26dp" />
 
     <TextView
         android:id="@+id/tv_oilname4"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tv_oilname3"
         android:layout_below="@+id/tv_oilname3"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:text="oil4"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="26dp"/>
@@ -55,10 +55,10 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/tv_oilname4"
         android:layout_below="@+id/tv_oilname4"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:text="oil5"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textSize="26dp"/>
+        android:textSize="26dp" />
 
     <TextView
         android:id="@+id/tv_oilprice1"
@@ -108,46 +108,46 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
-        app:srcCompat="@drawable/ic_local_gas_station_black_24dp"
-        android:layout_alignTop="@+id/tv_oilname1"
+        app:srcCompat="@drawable/ic_local_gas_station98"
+        android:layout_above="@+id/tv_oilname2"
         android:layout_alignStart="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        app:srcCompat="@drawable/ic_local_gas_station_black_24dp"
-        android:layout_alignTop="@+id/tv_oilname2"
-        android:layout_alignStart="@+id/imageView3" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/tv_oilname2"
+        android:layout_alignStart="@+id/imageView3"
+        app:srcCompat="@drawable/ic_local_gas_station95" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_above="@+id/tv_oilname4"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/tv_oilprice3"
         android:layout_alignStart="@+id/imageView4"
-        app:srcCompat="@drawable/ic_local_gas_station_black_24dp" />
+        app:srcCompat="@drawable/ic_local_gas_station92" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_above="@+id/tv_oilname5"
         android:layout_alignStart="@+id/imageView5"
-        app:srcCompat="@drawable/ic_local_gas_station_black_24dp" />
+        app:srcCompat="@drawable/ic_local_wine" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="23dp"
-        app:srcCompat="@drawable/ic_local_gas_station_black_24dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_alignBottom="@+id/tv_oilname5"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="24dp"
+        app:srcCompat="@drawable/ic_local_gas_oil" />
 
     <TextView
         android:id="@+id/tv_oilprice4"

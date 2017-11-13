@@ -9,10 +9,16 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.app.AlertDialog;
+import android.widget.AdapterView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.SimpleCursorAdapter;
 
 import com.example.user.uprice.MainActivity;
@@ -25,6 +31,8 @@ public class Information extends AppCompatActivity {
     private SimpleCursorAdapter adapter;
     private Cursor cursor;
     private Button back;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +63,8 @@ public class Information extends AppCompatActivity {
         cursor = db.rawQuery("SELECT * FROM contacts", null);
         adapter = new SimpleCursorAdapter(this, R.layout.info_item,
                 cursor, new String[]{"name", "number", "date"}, new int[]{R.id.info_item_name, R.id.info_item_number,R.id.info_item_date}, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-        lv.setAdapter(adapter);
+
+
 
     }
 
