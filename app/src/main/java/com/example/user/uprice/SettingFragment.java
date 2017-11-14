@@ -17,7 +17,7 @@ public class SettingFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.setting_layout, container , false);
-        getActivity().setTitle("設定");
+        getActivity().setTitle("關於我們");
         return myView;
     }
 }
