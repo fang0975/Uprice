@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Uprice");
 
         setSupportActionBar(toolbar);
         FragmentManager fragmentManager = getFragmentManager();
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
     private void processViews() {
         // 在這個方法中，取得畫面元件物件後指定給欄位變數
-        Info_contact = (ListView)findViewById(R.id.Info_contact);
+
     }
 
     private void processControllers() {

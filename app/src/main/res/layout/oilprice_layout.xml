@@ -8,7 +8,7 @@
         android:id="@+id/tv_oilname1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="70dp"
         android:text="oil1"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -20,12 +20,12 @@
         android:id="@+id/tv_oilname2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tv_oilname1"
-        android:layout_below="@+id/tv_oilname1"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="69dp"
         android:text="oil2"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textSize="26dp"/>
+        android:textSize="26dp"
+        android:layout_below="@+id/tv_oilname1"
+        android:layout_alignStart="@+id/tv_oilname1" />
 
     <TextView
         android:id="@+id/tv_oilname3"
@@ -64,13 +64,13 @@
         android:id="@+id/tv_oilprice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="63dp"
+        android:layout_marginEnd="36dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="24dp"
         android:textStyle="normal|bold"
-        android:layout_above="@+id/tv_oilname2"
+        android:layout_alignTop="@+id/tv_oilname1"
         android:layout_alignParentEnd="true" />
 
     <TextView
@@ -113,8 +113,9 @@
         android:adjustViewBounds="false"
         android:cropToPadding="false"
         app:srcCompat="@drawable/ic_local_gas_station98"
-        android:layout_above="@+id/tv_oilname2"
-        android:layout_alignStart="@+id/imageView2" />
+        android:layout_above="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginBottom="33dp" />
 
     <ImageView
         android:id="@+id/imageView2"
