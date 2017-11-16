@@ -17,17 +17,25 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.SimpleCursorAdapter;
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.widget.Toast;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
 
 import com.example.user.uprice.DBHelper.Information;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
                              PersonalGarageFragment.OnFragmentInteractionListener{
 
+    SwipeRefreshLayout mSwipeLayout;
 
-
-
-
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +54,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipelayout);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+            @Override
+            public void onRefresh() {
+                mSwipeRefreshLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        mSwipeRefreshLayout.setRefreshing(false);
+
+                    }
+                },2000);
+            }
+        });
+
 
     }
 
+
+    private void refresh() {
+        finish();
+        Intent intent_main = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent_main);
+        //onCreate(null);
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -58,6 +90,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
+/*
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,17 +109,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-           // iFrag.writeToDB();
-            getFragmentManager().beginTransaction()
-                    .replace(R.id.content_main,
-                            new PersonalGarageFragment()).commit();
-
+        if (id == R.id.action_refresh) {
+            Toast.makeText(this, "已重新整理", Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
+*/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

@@ -20,4 +20,5 @@ public class SettingFragment extends Fragment{
         getActivity().setTitle("關於我們");
         return myView;
     }
+
 }
