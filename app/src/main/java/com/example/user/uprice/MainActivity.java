@@ -13,11 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.SimpleCursorAdapter;
@@ -28,7 +24,7 @@ import com.example.user.uprice.DBHelper.Information;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
                              PersonalGarageFragment.OnFragmentInteractionListener{
 
-    private ListView Info_contact;
+
 
 
 
@@ -37,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_main, new OilPriceFragment()).commit();
@@ -52,20 +47,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        // 呼叫自己額外宣告的方法，執行所有取得畫面元件物件的工作
-        processViews();
-        // 呼叫自己額外宣告的方法，執行所有註冊的工作
-        processControllers();
-
-    }
-    private void processViews() {
-        // 在這個方法中，取得畫面元件物件後指定給欄位變數
-
     }
 
-    private void processControllers() {
-
-    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

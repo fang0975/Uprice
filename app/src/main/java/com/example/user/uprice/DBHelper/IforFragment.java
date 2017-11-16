@@ -90,7 +90,7 @@ public class IforFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+        //dbHelper =  new DBHelper(getActivity(),"Info",3);
         db = dbHelper.getWritableDatabase();
 
 
