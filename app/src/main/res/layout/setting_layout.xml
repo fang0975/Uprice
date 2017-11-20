@@ -3,11 +3,16 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/tv_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/tv_setting"
-        android:text="setting"
-        android:textSize="30dp"/>
+        android:layout_centerVertical="true"
+        android:text="我們是高雄應用科技大學
+電子系資訊組的學生
+Uprice是我們的畢業專題
+希望可以讓機車族更方便
+技術尚未成熟，敬請見諒"
+        android:textAlignment="center"
+        android:textSize="30dp" />
 </RelativeLayout>

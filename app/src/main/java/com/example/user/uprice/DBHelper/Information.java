@@ -1,15 +1,18 @@
 package com.example.user.uprice.DBHelper;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
@@ -57,8 +60,42 @@ public class Information extends AppCompatActivity {
                 cursor, new String[]{"name", "number", "date"}, new int[]{R.id.info_item_name, R.id.info_item_number,R.id.info_item_date}, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         lv.setAdapter(adapter);
 
-    }
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                final int pos = position;
+                cursor.moveToPosition(1);
+                new AlertDialog.Builder(Information.this)
+                        .setTitle("刪除")
+                        .setMessage("確定要刪除此資料嗎")
+                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                delete(cursor.getInt(0));
+                                cursor.requery();
+                                adapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("否", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
 
+                            }
+                        })
+                        .show();
+
+                return false;
+            }
+        });
+
+
+
+
+
+    }
+    public void delete(int id){
+        db.delete("contacts", "_id" + "=" + Integer.toString(id), null);
+    }
 
     @Override
     public void onResume(){
@@ -68,6 +105,8 @@ public class Information extends AppCompatActivity {
         Log.i("onResume", "Bingo");
         //adapter.notifyDataSetChanged();
     }
-
+    public void close(){
+        db.close();
+    }
 
 }
