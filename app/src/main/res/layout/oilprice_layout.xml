@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipelayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
     <TextView
         android:id="@+id/tv_oilname1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="70dp"
         android:text="oil1"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -20,12 +25,12 @@
         android:id="@+id/tv_oilname2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/tv_oilname1"
-        android:layout_below="@+id/tv_oilname1"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="69dp"
         android:text="oil2"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textSize="26dp"/>
+        android:textSize="26dp"
+        android:layout_below="@+id/tv_oilname1"
+        android:layout_alignStart="@+id/tv_oilname1" />
 
     <TextView
         android:id="@+id/tv_oilname3"
@@ -64,13 +69,13 @@
         android:id="@+id/tv_oilprice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="63dp"
+        android:layout_marginEnd="36dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="24dp"
         android:textStyle="normal|bold"
-        android:layout_above="@+id/tv_oilname2"
+        android:layout_alignTop="@+id/tv_oilname1"
         android:layout_alignParentEnd="true" />
 
     <TextView
@@ -106,6 +111,9 @@
         android:layout_marginBottom="17dp"
         android:text=""/>
 
+
+
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="60dp"
@@ -113,8 +121,9 @@
         android:adjustViewBounds="false"
         android:cropToPadding="false"
         app:srcCompat="@drawable/ic_local_gas_station98"
-        android:layout_above="@+id/tv_oilname2"
-        android:layout_alignStart="@+id/imageView2" />
+        android:layout_above="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginBottom="33dp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -187,3 +196,4 @@
         android:textSize="30sp" />
 
 </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout >

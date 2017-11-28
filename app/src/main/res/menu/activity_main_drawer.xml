@@ -4,20 +4,20 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_PersonalGarage"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_motorcycle_black_24dp"
             android:title="個人車庫" />
         <item
             android:id="@+id/nav_OilPrice"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_price"
             android:title="油價查詢" />
         <item
             android:id="@+id/nav_GasStation"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_local_gas_station_black_24dp"
             android:title="加油站" />
         <item
             android:id="@+id/nav_Setting"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="設定" />
+            android:icon="@drawable/ic_aboutus"
+            android:title="關於我們" />
     </group>
     <!--
     <item android:title="Communicate">
