@@ -116,12 +116,14 @@
         android:id="@+id/toolbar3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_x="-1dp"
-        android:layout_y="-2dp"
+
         android:background="?attr/colorPrimary"
+        android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:title="Information" />
+        android:colorPrimaryDark="@color/colorPrimaryDark"
+        app:theme="@style/AppTheme.NoActionBar"
+        app:title="新增一台機車"
+        app:titleTextColor="@android:color/white" />
 
     <DatePicker
         android:id="@+id/datePicker"

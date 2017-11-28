@@ -1,9 +1,13 @@
 package com.example.user.uprice.DBHelper;
 
+import android.annotation.TargetApi;
+import android.app.FragmentManager;
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CursorAdapter;
@@ -28,12 +34,15 @@ public class Information extends AppCompatActivity {
     private SimpleCursorAdapter adapter;
     private Cursor cursor;
     private Button back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iformation);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        drawColorToStatusBar();
         back = (Button) findViewById(R.id.Back);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +106,12 @@ public class Information extends AppCompatActivity {
         db.delete("contacts", "_id" + "=" + Integer.toString(id), null);
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
+    private void drawColorToStatusBar() {
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getColor(R.color.colorPrimaryDark));
+    }
     @Override
     public void onResume(){
         super.onResume();

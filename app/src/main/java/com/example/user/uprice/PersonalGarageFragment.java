@@ -32,7 +32,7 @@ public class PersonalGarageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.personalgarage_layout, container, false);
+        myView = inflater.inflate(R.layout.activity_iformation, container, false);
         getActivity().setTitle("個人車庫");
 
 
