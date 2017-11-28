@@ -1,13 +1,17 @@
 package com.example.user.uprice.DBHelper;
 
+import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -33,6 +37,7 @@ public class Info extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addmotorcycle_layout);
+        drawColorToStatusBar();
         etName = (EditText) findViewById(R.id.ed_Name);
         etProduct = (EditText) findViewById(R.id.ed_Product);
         etnumber = (EditText) findViewById(R.id.ed_Number);
@@ -56,6 +61,7 @@ public class Info extends AppCompatActivity {
         });
 
     }
+
     public void newItem(View view){
 
         dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
@@ -80,7 +86,12 @@ public class Info extends AppCompatActivity {
         //Cursor cursor = db.rawQuery(sql, null);
         //Log.i("ADD: ", String.valueOf(cursor.getInt(0)));
     }
-
+    @TargetApi(Build.VERSION_CODES.M)
+    private void drawColorToStatusBar() {
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getColor(R.color.colorPrimaryDark));
+    }
     public boolean delete(long rowid) {
 
         Log.d("mylog","del："+ rowid);
