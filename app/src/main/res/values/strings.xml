@@ -425,4 +425,5 @@
   }
 }</string>
     <string name="title_activity_iformation">Iformation</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

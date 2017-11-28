@@ -1,32 +1,17 @@
 package com.example.user.uprice;
 
 import android.app.FragmentManager;
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.SimpleCursorAdapter;
-import android.app.Activity;
-import android.graphics.Color;
-import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
-import android.widget.Toast;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.EditText;
 
 import com.example.user.uprice.DBHelper.Information;
 
@@ -129,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_OilPrice) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new OilPriceFragment()).commit();
         } else if (id == R.id.nav_GasStation) {
-            fragmentManager.beginTransaction().replace(R.id.content_main, new GasStationFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_main, new MapStationFragment()).commit();
         } else if (id == R.id.nav_Setting) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new SettingFragment()).commit();
         } /*else if (id == R.id.nav_share) {
