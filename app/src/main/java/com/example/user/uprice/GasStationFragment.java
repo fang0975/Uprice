@@ -59,7 +59,7 @@ public class GasStationFragment extends Fragment {
         textViewGS1.setText("請選擇縣市");
         textViewGS2.setText("請選擇地區");
         pd = new ProgressDialog(getActivity());
-        getActivity().setTitle("加油站");
+
         getData();
         my_recycler_view = (RecyclerView) myView.findViewById(R.id.my_recycler_view);
         String str = getResources().getString(R.string.source);

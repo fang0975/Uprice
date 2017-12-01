@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_OilPrice) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new OilPriceFragment()).commit();
         } else if (id == R.id.nav_GasStation) {
-            fragmentManager.beginTransaction().replace(R.id.content_main, new MapStationFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_main, new TabFragment()).commit();
         } else if (id == R.id.nav_Setting) {
             fragmentManager.beginTransaction().replace(R.id.content_main, new SettingFragment()).commit();
         } /*else if (id == R.id.nav_share) {
