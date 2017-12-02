@@ -1,8 +1,6 @@
 package com.example.user.uprice.DBHelper;
 
 import android.annotation.TargetApi;
-import android.app.FragmentManager;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -96,7 +93,22 @@ public class Information extends AppCompatActivity {
                 return false;
             }
         });
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                final int pos = position;
+                cursor.moveToPosition(pos);
+                //startActivity(new Intent(Information.this, PersonalOilCost.class));
+                Intent intent = new Intent();
+                intent.setClass(Information.this, PersonalOilCost.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name",cursor.getString(1));
+                bundle.putString("product",cursor.getString(2));
+                intent.putExtras(bundle);
+                startActivity(intent);
 
+            }
+        });
 
 
 
