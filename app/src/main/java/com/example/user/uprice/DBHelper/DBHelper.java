@@ -28,7 +28,9 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("create table contacts" +
             "(_id INTEGER PRIMARY KEY NOT NULL, name VARCHAR, product VARCHAR, number VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
         );
-
+        sqLiteDatabase.execSQL("create table oilcosts" +
+                "(_id INTEGER PRIMARY KEY NOT NULL, km_l INTEGER, nt_km INTEGER, full_oil_nt INTEGER, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+        );
     }
 
     @Override

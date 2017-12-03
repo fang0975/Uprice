@@ -4,75 +4,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <EditText
-        android:id="@+id/last_fulloil_km"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar2"
-        android:layout_marginTop="43dp"
-        android:ems="10"
-        android:hint="上次加滿油里程數"
-        android:inputType="number|numberSigned|numberDecimal"
-        android:textAlignment="center" />
-
-    <EditText
-        android:id="@+id/now_fulloil_km"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/last_fulloil_km"
-        android:layout_alignBottom="@+id/last_fulloil_km"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/last_fulloil_km"
-        android:ems="10"
-        android:hint="這次加滿油里程數"
-        android:inputType="number|numberSigned|numberDecimal"
-        android:textAlignment="center" />
-
-    <EditText
-        android:id="@+id/now_fulloil_L"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/last_fulloil_km"
-        android:layout_marginTop="13dp"
-        android:ems="10"
-        android:hint="這次加滿油加了幾公升"
-        android:inputType="number|numberSigned|numberDecimal"
-        android:textAlignment="viewStart" />
-
-    <Spinner
-        android:id="@+id/oilprice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/now_fulloil_L"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/now_fulloil_L"
-        android:layout_toEndOf="@+id/now_fulloil_L"
-        android:hint="選擇油價"
-        android:visibility="visible" />
-
-    <EditText
-        android:id="@+id/now_km"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/now_fulloil_L"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="現在的里程數"
-        android:inputType="number|numberSigned|numberDecimal"
-        android:textAlignment="center" />
-
     <Button
         android:id="@+id/oilcost_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/now_km"
-        android:layout_toEndOf="@+id/now_fulloil_L"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="14dp"
         android:elevation="0dp"
-        android:text="計算油耗"
+        android:text="新增油耗資料"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="24sp" />
@@ -101,12 +42,21 @@
 
     <TextView
         android:id="@+id/product"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/name"
-        android:layout_toEndOf="@+id/last_fulloil_km"
         android:text="TextView"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_below="@+id/toolbar2"
+        android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:id="@+id/lv_oilcost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/oilcost_button"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>

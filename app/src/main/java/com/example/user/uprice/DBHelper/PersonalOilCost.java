@@ -1,6 +1,7 @@
 package com.example.user.uprice.DBHelper;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -20,6 +21,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.user.uprice.MainActivity;
 import com.example.user.uprice.R;
 
 /**
@@ -41,24 +43,30 @@ public class PersonalOilCost extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawColorToStatusBar();
         //findview:
 
         OName =(TextView)findViewById(R.id.name) ;
         OProduct =(TextView)findViewById(R.id.product) ;
-        last_oilkm = (EditText)findViewById(R.id.last_fulloil_km);
-        now_oilkm = (EditText)findViewById(R.id.now_fulloil_km);
-        now_oil_L = (EditText)findViewById(R.id.now_fulloil_L);
-        now_km = (EditText)findViewById(R.id.now_km);
-        oilcost = (Button) findViewById(R.id.Back);
-
-
-        //oilprice_select
-        oilprice_select();
-
-        //Name and Product SQL
-        DBHelper dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
+        oilcost =(Button) findViewById(R.id.oilcost_button) ;
+        lv = (ListView) findViewById(R.id.lv_oilcost);
+        //new oilcost data
+        oilcost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PersonalOilCost.this, AddOilcost.class));
+            }
+        });
+        //DB oilcost data
+       /* DBHelper dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
         db = dbHelper.getReadableDatabase();
+        cursor = db.rawQuery("SELECT * FROM oilcosts", null);
+        adapter = new SimpleCursorAdapter(this, R.layout.oilcost_info_item,
+                cursor, new String[]{"_id", "km_l", "nt_km","full_oil_nt"}, new int[]{R.id.ID, R.id.oneL_runKM,R.id.oneKM_money,R.id.nowcost_NT}, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        lv.setAdapter(adapter);*/
+        //Name and Product SQL
+
         Bundle bundle0311 =this.getIntent().getExtras();
         String PGname = bundle0311.getString("name");
         String PGproduct = bundle0311.getString("product");
@@ -85,6 +93,9 @@ public class PersonalOilCost extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+
 
             }
 
