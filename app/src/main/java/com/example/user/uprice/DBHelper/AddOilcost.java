@@ -1,10 +1,16 @@
 package com.example.user.uprice.DBHelper;
 
 import android.annotation.TargetApi;
+import android.content.ContentValues;
+import android.content.Intent;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,7 +20,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-
+import java.text.NumberFormat;
+import com.example.user.uprice.MainActivity;
 import com.example.user.uprice.R;
 
 public class AddOilcost extends AppCompatActivity {
@@ -22,12 +29,15 @@ public class AddOilcost extends AppCompatActivity {
     private EditText last_oilkm, now_oilkm, now_oil_L,now_km,selected_price_textview;
     private TextView last_oilkm_textview, now_oilkm_textview, now_oil_L_textview,oilprice_textview,now_km_textview;
     private Button oilcost;
+    private DBHelper dbHelper;
+    private SQLiteDatabase db;
+    private Cursor cursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_oilcost);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar5);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawColorToStatusBar();
@@ -46,6 +56,46 @@ public class AddOilcost extends AppCompatActivity {
         selected_price_textview=(EditText)findViewById(R.id.selected_priceView) ;
         oilprice_select();
 
+
+        //calculate
+        oilcost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    float Flast_oilkm = Float.parseFloat(last_oilkm.getEditableText().toString());      // 取得 上次加滿油里程數輸入值
+                    float Fnow_oilkm = Float.parseFloat(now_oilkm.getEditableText().toString());     // 取得 這次加滿油里程數輸入值
+                    float Fnow_oil_L = Float.parseFloat(now_oil_L.getEditableText().toString());     // 取得 這次加滿油加了幾公升// 輸入值
+                    float Foil_price = Float.parseFloat(selected_price_textview.getEditableText().toString());     // 取得 加油的油價 輸入值
+                    float Fnow_km = Float.parseFloat(now_km.getEditableText().toString());     // 取得 現在里程數 輸入值
+                    float KML,NTL,nowcost;                                     //  一公升跑幾公里，每公里油錢，加滿要多少錢 計算結果
+
+                    KML=((Fnow_oilkm-Flast_oilkm)/Fnow_oil_L); // 計算一公升跑幾公里
+                    NTL= (Foil_price*Fnow_oil_L)/(Fnow_oilkm-Flast_oilkm); // 計算每公里油錢
+                    nowcost=(Fnow_km-Fnow_oilkm)*NTL;
+
+
+                    NumberFormat nf = NumberFormat.getInstance();   // 數字格式
+                    nf.setMaximumFractionDigits(1);                 // 限制小數第二位
+                    String SKML =String.valueOf(nf.format(KML));
+                    String SNTL =String.valueOf(nf.format(NTL));
+                    String Snowcost =String.valueOf(nf.format(nowcost));
+
+                //nf.format()
+
+                    DBopen(v);
+                               // 寫入計算結果至DB
+                    ContentValues values = new ContentValues();
+                    values.put("km_l", SKML);
+                    values.put("nt_km",SNTL );
+                    values.put("full_oil_nt",Snowcost);
+                    //values.put("date",date);
+                    Long id = db.insert("oil", null, values);
+                    Log.i("ADD: ", String.valueOf(id));
+
+                    startActivity(new Intent(AddOilcost.this, PersonalOilCost.class));
+
+            }
+        });
     }
     @TargetApi(Build.VERSION_CODES.M)
     private void drawColorToStatusBar() {
@@ -67,22 +117,22 @@ public class AddOilcost extends AppCompatActivity {
                 int pos =position;
                 switch (pos){
                     case 0://98
-                        selected_price_textview.setText("95.6");
+                        selected_price_textview.setText("29.7");
                     break;
                     case 1://95
-
+                        selected_price_textview.setText("27.7");
 
                     break;
                     case 2://92
-                        
+                        selected_price_textview.setText("26.2");
 
                     break;
                     case 3://酒精
-
+                        selected_price_textview.setText("27.7");
 
                     break;
                     case 4://超柴
-
+                        selected_price_textview.setText("24.1");
                     break;
                 }
             }
@@ -92,6 +142,11 @@ public class AddOilcost extends AppCompatActivity {
 
             }
         });
+
+    }
+    public void DBopen(View view) {
+            dbHelper = DBHelper.getInstance(this, "oilDB" , 1);
+            db = dbHelper.getWritableDatabase();
 
     }
 }

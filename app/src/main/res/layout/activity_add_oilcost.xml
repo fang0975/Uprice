@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
 
         android:layout_alignEnd="@+id/oilcost_button"
-        android:layout_below="@+id/toolbar2"
+        android:layout_below="@+id/toolbar5"
         android:layout_marginEnd="14dp"
         android:layout_marginTop="15dp"
         android:ems="10"
@@ -80,7 +80,7 @@
         android:layout_alignParentEnd="true" />
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar2"
+        android:id="@+id/toolbar5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"

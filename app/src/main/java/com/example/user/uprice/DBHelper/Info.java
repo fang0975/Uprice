@@ -3,6 +3,7 @@ package com.example.user.uprice.DBHelper;
 import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ public class Info extends AppCompatActivity {
     private DBHelper dbHelper;
     private SQLiteDatabase db;
     private Button ok ,can;
+
 
 
     @Override
@@ -63,8 +65,8 @@ public class Info extends AppCompatActivity {
     }
 
     public void newItem(View view){
-
-        dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
+        dbHelper =new DBHelper(this, "contactsDB", null, 1);
+       // dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
         db = dbHelper.getWritableDatabase();
         String name = etName.getText().toString();
         String product = etProduct.getText().toString();

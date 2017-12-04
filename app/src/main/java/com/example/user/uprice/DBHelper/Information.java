@@ -59,7 +59,8 @@ public class Information extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.Info_contact);
 
-        DBHelper dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
+        //DBHelper dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
+        DBHelper dbHelper =new DBHelper(this, "contactsDB", null, 1);
         db = dbHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM contacts", null);
         adapter = new SimpleCursorAdapter(this, R.layout.info_item,
@@ -104,6 +105,9 @@ public class Information extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("name",cursor.getString(1));
                 bundle.putString("product",cursor.getString(2));
+               /* db.execSQL("create table oil" +pos+
+                        "(_id INTEGER PRIMARY KEY NOT NULL, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+                );*/
                 intent.putExtras(bundle);
                 startActivity(intent);
 

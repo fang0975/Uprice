@@ -21,7 +21,6 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.user.uprice.MainActivity;
 import com.example.user.uprice.R;
 
 /**
@@ -32,6 +31,7 @@ public class PersonalOilCost extends AppCompatActivity {
     private SQLiteDatabase db;
     private SimpleCursorAdapter adapter;
     private Cursor cursor;
+    private DBHelper dbHelper;
     private EditText last_oilkm, now_oilkm, now_oil_L,now_km;
     private TextView OName,OProduct;
     private Button oilcost;
@@ -59,12 +59,20 @@ public class PersonalOilCost extends AppCompatActivity {
             }
         });
         //DB oilcost data
-       /* DBHelper dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
+         //dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
+
+       /* dbHelper =new DBHelper(this, "contactsDB", null, 1);
+        cursor = db.rawQuery("SELECT * FROM contacts", null);
+        int i=cursor.getPosition();
+        db.close();*/
+       dbHelper =new DBHelper(this, "oilDB", null, 1);
         db = dbHelper.getReadableDatabase();
-        cursor = db.rawQuery("SELECT * FROM oilcosts", null);
+
+        cursor = db.rawQuery("SELECT * FROM oil", null);
         adapter = new SimpleCursorAdapter(this, R.layout.oilcost_info_item,
                 cursor, new String[]{"_id", "km_l", "nt_km","full_oil_nt"}, new int[]{R.id.ID, R.id.oneL_runKM,R.id.oneKM_money,R.id.nowcost_NT}, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-        lv.setAdapter(adapter);*/
+
+        lv.setAdapter(adapter);
         //Name and Product SQL
 
         Bundle bundle0311 =this.getIntent().getExtras();
@@ -108,6 +116,5 @@ public class PersonalOilCost extends AppCompatActivity {
 
 
     }
-
 
 }
