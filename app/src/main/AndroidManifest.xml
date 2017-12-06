@@ -31,15 +31,15 @@
             android:parentActivityName="com.example.user.uprice.DBHelper.Information"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".DBHelper.AddOilcost"
-            android:label="AddOilCost"
-            android:parentActivityName="com.example.user.uprice.DBHelper.PersonalOilCost"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".DBHelper.Info"
             android:label="Info"
             android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".DBHelper.AddOilcost"
+            android:label="AddOilCost"
+            android:parentActivityName="com.example.user.uprice.DBHelper.PersonalOilCost"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

@@ -39,7 +39,7 @@ public class AddOilcost extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar5);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawColorToStatusBar();
 
         //findview
@@ -76,6 +76,7 @@ public class AddOilcost extends AppCompatActivity {
 
                     NumberFormat nf = NumberFormat.getInstance();   // 數字格式
                     nf.setMaximumFractionDigits(1);                 // 限制小數第二位
+                    String SNowKm =String.valueOf(Fnow_km);
                     String SKML =String.valueOf(nf.format(KML));
                     String SNTL =String.valueOf(nf.format(NTL));
                     String Snowcost =String.valueOf(nf.format(nowcost));
@@ -85,6 +86,7 @@ public class AddOilcost extends AppCompatActivity {
                     DBopen(v);
                                // 寫入計算結果至DB
                     ContentValues values = new ContentValues();
+                    values.put("now_KM", SNowKm);
                     values.put("km_l", SKML);
                     values.put("nt_km",SNTL );
                     values.put("full_oil_nt",Snowcost);
@@ -92,7 +94,8 @@ public class AddOilcost extends AppCompatActivity {
                     Long id = db.insert("oil", null, values);
                     Log.i("ADD: ", String.valueOf(id));
 
-                    startActivity(new Intent(AddOilcost.this, PersonalOilCost.class));
+                
+                AddOilcost.this.finish();
 
             }
         });
@@ -145,7 +148,7 @@ public class AddOilcost extends AppCompatActivity {
 
     }
     public void DBopen(View view) {
-            dbHelper = DBHelper.getInstance(this, "oilDB" , 1);
+            dbHelper =new DBHelper(this, "oilsDB", null, 1);
             db = dbHelper.getWritableDatabase();
 
     }

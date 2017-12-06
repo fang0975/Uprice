@@ -52,13 +52,14 @@ public class Info extends AppCompatActivity {
             public void onClick(View v) {
                 newItem(v);
                 startActivity(new Intent(Info.this, Information.class));
+                Info.this.finish();
             }
         });
         can.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivity(new Intent(Info.this, Information.class));
+                Info.this.finish();
+               // startActivity(new Intent(Info.this, Information.class));
             }
         });
 

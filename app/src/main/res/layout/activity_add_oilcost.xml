@@ -57,7 +57,7 @@
         android:id="@+id/now_km"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="number|numberSigned|numberDecimal"
         android:textAlignment="center"
