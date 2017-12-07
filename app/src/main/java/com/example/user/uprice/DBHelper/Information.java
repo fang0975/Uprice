@@ -103,6 +103,7 @@ public class Information extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setClass(Information.this, PersonalOilCost.class);
                 Bundle bundle = new Bundle();
+                bundle.putString("id",String.valueOf(cursor.getInt(0)));
                 bundle.putString("name",cursor.getString(1));
                 bundle.putString("product",cursor.getString(2));
                /* db.execSQL("create table oil" +pos+
@@ -110,6 +111,12 @@ public class Information extends AppCompatActivity {
                 );*/
                 intent.putExtras(bundle);
                 startActivity(intent);
+
+                Intent intent1 = new Intent();
+                intent1.setClass(Information.this, AddOilcost.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("pos",String.valueOf(pos));
+                intent.putExtras(bundle1);
 
             }
         });

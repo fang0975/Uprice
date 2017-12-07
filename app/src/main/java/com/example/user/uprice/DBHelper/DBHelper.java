@@ -1,6 +1,7 @@
 package com.example.user.uprice.DBHelper;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -9,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-
+    private Cursor cursor;
     private static DBHelper instance = null;
 
     public static DBHelper getInstance(Context context, String name, int version){
@@ -28,9 +29,12 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("create table contacts" +
             "(_id INTEGER PRIMARY KEY NOT NULL, name VARCHAR, product VARCHAR, number VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
         );
-        sqLiteDatabase.execSQL("create table oil" +
-                "(_id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
-        );
+        cursor = sqLiteDatabase.rawQuery("SELECT * FROM contacts", null);
+
+            sqLiteDatabase.execSQL("create table oil" +
+                    "(_id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+            );
+
     }
 
     @Override

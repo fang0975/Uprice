@@ -66,6 +66,8 @@ public class Info extends AppCompatActivity {
     }
 
     public void newItem(View view){
+       // db.execSQL("create table oil" +pos+
+                     //   "(_id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)");
         dbHelper =new DBHelper(this, "contactsDB", null, 1);
        // dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
         db = dbHelper.getWritableDatabase();

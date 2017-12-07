@@ -65,13 +65,16 @@ public class PersonalOilCost extends AppCompatActivity {
                 startActivity(new Intent(PersonalOilCost.this, AddOilcost.class));
             }
         });
-        //DB oilcost data
-         //dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
+        //Name and Product SQL
 
-       /* dbHelper =new DBHelper(this, "contactsDB", null, 1);
-        cursor = db.rawQuery("SELECT * FROM contacts", null);
-        int i=cursor.getPosition();
-        db.close();*/
+        Bundle bundle0311 =this.getIntent().getExtras();
+        String ID = bundle0311.getString("id");
+        String PGname = bundle0311.getString("name");
+        String PGproduct = bundle0311.getString("product");
+        OName.setText(PGname);
+        OProduct.setText(PGproduct);
+        //DB oilcost data
+
        dbHelper =new DBHelper(this, "oilsDB", null, 1);
         db = dbHelper.getReadableDatabase();
 
@@ -107,13 +110,7 @@ public class PersonalOilCost extends AppCompatActivity {
                 return false;
             }
         });
-        //Name and Product SQL
 
-        Bundle bundle0311 =this.getIntent().getExtras();
-        String PGname = bundle0311.getString("name");
-        String PGproduct = bundle0311.getString("product");
-        OName.setText(PGname);
-        OProduct.setText(PGproduct);
 
         av_cal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +125,7 @@ public class PersonalOilCost extends AppCompatActivity {
                     FFavoilcost =FFavoilcost+Favcost[i];
                     cursor.moveToNext();
                 }
+
                 av_oilcost.setText(String.valueOf(FFavoilcost/cursor.getCount())+"  KM/L");
             }
         });

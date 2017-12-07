@@ -56,7 +56,9 @@ public class AddOilcost extends AppCompatActivity {
         selected_price_textview=(EditText)findViewById(R.id.selected_priceView) ;
         oilprice_select();
 
-
+        //get ID of contacts
+       Bundle bundle03 =this.getIntent().getExtras();
+       // String ID = bundle03.getString("pos");
         //calculate
         oilcost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +96,7 @@ public class AddOilcost extends AppCompatActivity {
                     Long id = db.insert("oil", null, values);
                     Log.i("ADD: ", String.valueOf(id));
 
-                
+
                 AddOilcost.this.finish();
 
             }
