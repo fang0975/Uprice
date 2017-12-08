@@ -3,7 +3,6 @@ package com.example.user.uprice;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,7 +17,7 @@ import com.example.user.uprice.DBHelper.Information;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
                              PersonalGarageFragment.OnFragmentInteractionListener{
 
-    SwipeRefreshLayout mSwipeLayout;
+
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     @Override
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+/*
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipelayout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-
+*/
     }
 
 

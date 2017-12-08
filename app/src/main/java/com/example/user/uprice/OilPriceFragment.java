@@ -4,7 +4,9 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +46,7 @@ public class OilPriceFragment extends Fragment {
     private TextView textView_oil8;
     private TextView textView_oil9;
     private TextView textView_oil10;
-
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -87,6 +89,22 @@ public class OilPriceFragment extends Fragment {
                 String str = response.body().string();
                 Log.e("Response", str.length() + "");
                 new JOB().execute(str);
+            }
+        });
+        mSwipeRefreshLayout = (SwipeRefreshLayout) myView.findViewById(R.id.swipelayout);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+
+            @Override
+            public void onRefresh() {
+                mSwipeRefreshLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        mSwipeRefreshLayout.setRefreshing(false);
+
+                    }
+                },1000);
             }
         });
 
