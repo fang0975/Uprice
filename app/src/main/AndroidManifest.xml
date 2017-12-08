@@ -36,6 +36,18 @@
             android:name=".DBHelper.Info"
             android:label="Info"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".DBHelper.PersonalOilCost"
+            android:label="PersonalOilCost"
+            android:parentActivityName="com.example.user.uprice.DBHelper.Information"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DBHelper.AddOilcost"
+            android:label="AddOilCost"
+            android:parentActivityName="com.example.user.uprice.DBHelper.PersonalOilCost"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
