@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/info_item">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/ID"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_x="2dp"
+        android:layout_y="-2dp"
+        android:textSize="24sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/nowKM_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/oc_name"
+        android:layout_x="2dp"
+        android:layout_y="28dp"
+        android:text="現在里程數："
+        android:textColor="?attr/actionMenuTextColor"
+        android:textSize="18sp"
+        app:textAllCaps="false" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/nowKM"
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="31dp"
+        android:layout_x="2dp"
+        android:layout_y="56dp"
+        android:textAlignment="textEnd"
+        android:textSize="22sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/KML_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/oc_name"
+        android:layout_x="61dp"
+        android:layout_y="1dp"
+        android:text="一公升可以跑          公里(KM/L)"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="22sp"
+        app:textAllCaps="false" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/oneL_runKM"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_x="194dp"
+        android:layout_y="0dp"
+        android:textAlignment="textEnd"
+        android:textSize="22sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/KMNT_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/oc_name"
+        android:layout_x="115dp"
+        android:layout_y="28dp"
+        android:text="跑每公里油錢為          元"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="22sp"
+        app:textAllCaps="false" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/oneKM_money"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/oc_name"
+        android:layout_marginStart="14dp"
+        android:layout_x="270dp"
+        android:layout_y="29dp"
+        android:textAlignment="textEnd"
+        android:textSize="22sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/FullNT_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/oc_name"
+        android:layout_x="110dp"
+        android:layout_y="55dp"
+        android:text="目前用的油需要花          元"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="22sp"
+        app:textAllCaps="false" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/nowcost_NT"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="31dp"
+        android:layout_x="287dp"
+        android:layout_y="56dp"
+        android:textAlignment="textEnd"
+        android:textSize="22sp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/KM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="28dp"
+        android:layout_marginTop="31dp"
+        android:layout_x="74dp"
+        android:layout_y="56dp"
+        android:text="KM"
+        android:textAlignment="textEnd"
+        android:textSize="22sp" />
+
+</AbsoluteLayout>

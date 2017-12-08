@@ -3,6 +3,7 @@ package com.example.user.uprice.DBHelper;
 import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ public class Info extends AppCompatActivity {
     private Button ok ,can;
 
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,21 +52,24 @@ public class Info extends AppCompatActivity {
             public void onClick(View v) {
                 newItem(v);
                 startActivity(new Intent(Info.this, Information.class));
+                Info.this.finish();
             }
         });
         can.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                startActivity(new Intent(Info.this, Information.class));
+                Info.this.finish();
+               // startActivity(new Intent(Info.this, Information.class));
             }
         });
 
     }
 
     public void newItem(View view){
-
-        dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
+       // db.execSQL("create table oil" +pos+
+                     //   "(_id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)");
+        dbHelper =new DBHelper(this, "contactsDB", null, 1);
+       // dbHelper = DBHelper.getInstance(this, "contactsDB", 1);
         db = dbHelper.getWritableDatabase();
         String name = etName.getText().toString();
         String product = etProduct.getText().toString();

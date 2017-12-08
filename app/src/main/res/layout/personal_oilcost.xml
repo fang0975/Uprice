@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/oilcost_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="14dp"
+        android:elevation="0dp"
+        android:text="新增油耗資料"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="個人油耗" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="TextView"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="30sp"
+        android:layout_below="@+id/toolbar2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/product"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="30sp"
+        android:layout_below="@+id/toolbar2"
+        android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:id="@+id/lv_oilcost"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="平均油耗為"
+        android:textSize="30sp"
+        android:layout_marginStart="26dp"
+        android:layout_above="@+id/av_calculate"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="13dp" />
+
+    <TextView
+        android:id="@+id/av_oilcost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        android:layout_alignBaseline="@+id/textView7"
+        android:layout_alignBottom="@+id/textView7"
+        android:layout_alignStart="@+id/product" />
+
+    <Button
+        android:id="@+id/av_calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="計算平均"
+        android:textSize="24sp"
+        android:layout_alignBaseline="@+id/oilcost_button"
+        android:layout_alignBottom="@+id/oilcost_button"
+        android:layout_alignStart="@+id/textView7" />
+
+</RelativeLayout>
