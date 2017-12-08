@@ -31,7 +31,12 @@
         <activity
             android:name=".DBHelper.Information"
             android:label="@string/app_name2"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DBHelper.PersonalOilCost"
+            android:label="PersonalOilCost"
+            android:parentActivityName="com.example.user.uprice.DBHelper.Information"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DBHelper.Info"
             android:label="Info"
