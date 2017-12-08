@@ -40,10 +40,11 @@
             android:parentActivityName="com.example.user.uprice.DBHelper.PersonalOilCost"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyClQ0zoh6CLA9G-JSBGtRP-b5ilApRITPs"/>
     </application>
 
-    <meta-data
-        android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyClQ0zoh6CLA9G-JSBGtRP-b5ilApRITPs"/>
-    
+
+
 </manifest>
