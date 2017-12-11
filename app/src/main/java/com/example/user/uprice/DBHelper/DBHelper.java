@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by Bob on 2016/11/14.
@@ -26,19 +27,32 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("create table contacts" +
+        sqLiteDatabase.execSQL("create table contacts " +
             "(_id INTEGER PRIMARY KEY NOT NULL, name VARCHAR, product VARCHAR, number VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
         );
-        cursor = sqLiteDatabase.rawQuery("SELECT * FROM contacts", null);
 
-            sqLiteDatabase.execSQL("create table oil" +
-                    "(_id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+
+        sqLiteDatabase.execSQL("create table oil " +
+                    "( _id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
             );
 
+        sqLiteDatabase.execSQL("create table IF NOT EXISTS oilA " +
+                "( _id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+        );
+        sqLiteDatabase.execSQL("create table IF NOT EXISTS oilB " +
+                "( _id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+        );
+        sqLiteDatabase.execSQL("create table IF NOT EXISTS oilC " +
+                "( _id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+        );
+        sqLiteDatabase.execSQL("create table IF NOT EXISTS oilD " +
+                "( _id INTEGER PRIMARY KEY NOT NULL, now_KM VARCHAR, km_l VARCHAR, nt_km VARCHAR, full_oil_nt VARCHAR, date VARCHAR,created_time TIMESTAMP default CURRENT_TIMESTAMP)"
+        );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+
         onCreate(sqLiteDatabase);
     }
 

@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.user.uprice.R;
 
@@ -32,6 +33,7 @@ public class Info extends AppCompatActivity {
     private DBHelper dbHelper;
     private SQLiteDatabase db;
     private Button ok ,can;
+    private Cursor cursor;
 
 
 
@@ -47,12 +49,26 @@ public class Info extends AppCompatActivity {
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         ok = (Button) findViewById(R.id.OK);
         can = (Button) findViewById(R.id.cancel);
+
+        dbHelper =new DBHelper(this, "contactsDB", null, 1);
+        db = dbHelper.getReadableDatabase();
+        cursor = db.rawQuery("SELECT * FROM contacts", null);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                newItem(v);
-                startActivity(new Intent(Info.this, Information.class));
-                Info.this.finish();
+                if(cursor.getCount()<5) {
+                    newItem(v);
+                    startActivity(new Intent(Info.this, Information.class));
+                    Info.this.finish();
+                }
+                else{
+                    //利用Toast的靜態函式makeText來建立Toast物件
+                    Toast toast = Toast.makeText(Info.this,
+                            "最多只能產生五個個人車庫!", Toast.LENGTH_SHORT);
+                    //顯示Toast
+                    toast.show();
+
+                }
             }
         });
         can.setOnClickListener(new View.OnClickListener() {
