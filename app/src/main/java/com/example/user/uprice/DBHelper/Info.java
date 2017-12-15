@@ -20,8 +20,6 @@ import android.widget.Toast;
 
 import com.example.user.uprice.R;
 
-import static com.example.user.uprice.R.id.datePicker;
-
 /**
  * Created by fang on 2016/12/26.
  */
@@ -36,7 +34,6 @@ public class Info extends AppCompatActivity {
     private Cursor cursor;
 
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +46,8 @@ public class Info extends AppCompatActivity {
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         ok = (Button) findViewById(R.id.OK);
         can = (Button) findViewById(R.id.cancel);
+
+
 
         dbHelper =new DBHelper(this, "contactsDB", null, 1);
         db = dbHelper.getReadableDatabase();

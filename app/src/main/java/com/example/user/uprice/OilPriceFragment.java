@@ -1,6 +1,5 @@
 package com.example.user.uprice;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.user.uprice.base.BaseFragment;
 import com.example.user.uprice.xmltojsonlib.XmlToJson;
 
 import org.json.JSONArray;
@@ -32,7 +32,7 @@ import okhttp3.Response;
  * Created by user on 2016/12/21.
  */
 
-public class OilPriceFragment extends Fragment {
+public class OilPriceFragment extends BaseFragment {
     private Context context;
     private View myView;
     private static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/soap+xml; charset=utf-8");

@@ -2,13 +2,11 @@ package com.example.user.uprice.DBHelper;
 
 import android.annotation.TargetApi;
 import android.content.ContentValues;
-import android.content.Intent;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -20,9 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import java.text.NumberFormat;
-import com.example.user.uprice.MainActivity;
+
 import com.example.user.uprice.R;
+
+import java.text.NumberFormat;
 
 public class AddOilcost extends AppCompatActivity {
 
@@ -57,8 +56,11 @@ public class AddOilcost extends AppCompatActivity {
         oilprice_select();
 
         //get ID of contacts
+
        Bundle bundle =this.getIntent().getExtras();
        final String ID = bundle.getString("pos");
+
+
 
 
         dbHelper =new DBHelper(this, "contactsDB", null, 1);
@@ -90,6 +92,7 @@ public class AddOilcost extends AppCompatActivity {
                     String Snowcost =String.valueOf(nf.format(nowcost));
 
                 //nf.format()
+
 
                     switch (ID) {
                         case "1":

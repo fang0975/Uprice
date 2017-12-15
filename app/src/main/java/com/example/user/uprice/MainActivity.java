@@ -8,13 +8,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.user.uprice.DBHelper.Information;
+import com.example.user.uprice.base.BaseActivity;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener,
                              PersonalGarageFragment.OnFragmentInteractionListener{
 
 

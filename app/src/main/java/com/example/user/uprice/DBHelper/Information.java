@@ -113,7 +113,6 @@ public class Information extends AppCompatActivity {
                 startActivity(intent);
 
 
-
             }
         });
 /*

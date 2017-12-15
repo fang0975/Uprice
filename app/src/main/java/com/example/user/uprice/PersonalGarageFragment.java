@@ -1,25 +1,21 @@
 package com.example.user.uprice;
 
-import android.app.Fragment;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SimpleCursorAdapter;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.ListViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+
+import com.example.user.uprice.base.BaseFragment;
 
 
 /**
  * Created by user on 2016/12/21.
  */
 
-public class PersonalGarageFragment extends Fragment {
+public class PersonalGarageFragment extends BaseFragment {
     View myView;
     private OnFragmentInteractionListener Listener;
 
