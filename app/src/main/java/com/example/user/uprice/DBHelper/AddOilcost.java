@@ -56,8 +56,11 @@ public class AddOilcost extends AppCompatActivity {
         oilprice_select();
 
         //get ID of contacts
-        Bundle bundle =this.getIntent().getExtras();
-        final String ID = bundle.getString("pos");
+
+       Bundle bundle =this.getIntent().getExtras();
+       final String ID = bundle.getString("pos");
+
+
 
 
         dbHelper =new DBHelper(this, "contactsDB", null, 1);
@@ -90,68 +93,69 @@ public class AddOilcost extends AppCompatActivity {
 
                 //nf.format()
 
-                switch (ID) {
-                    case "1":
-                        DBopen(v);
-                        ContentValues values = new ContentValues();
-                    values.put("now_KM", SNowKm);
-                    values.put("km_l", SKML);
-                    values.put("nt_km", SNTL);
-                    values.put("full_oil_nt", Snowcost);
-                    //values.put("date",date);
-                    Long id = db.insert("oil", null, values);
-                    Log.i("ADD: ", String.valueOf(id));
-                    AddOilcost.this.finish();
-                    break;
-                    case "2":
-                        DBopen(v);
-                        ContentValues valuesA = new ContentValues();
-                        valuesA.put("now_KM", SNowKm);
-                        valuesA.put("km_l", SKML);
-                        valuesA.put("nt_km", SNTL);
-                        valuesA.put("full_oil_nt", Snowcost);
+
+                    switch (ID) {
+                        case "1":
+                            DBopen(v);
+                            ContentValues values = new ContentValues();
+                        values.put("now_KM", SNowKm);
+                        values.put("km_l", SKML);
+                        values.put("nt_km", SNTL);
+                        values.put("full_oil_nt", Snowcost);
                         //values.put("date",date);
-                        Long idA = db.insert("oilA", null, valuesA);
-                        Log.i("ADD: ", String.valueOf(idA));
+                        Long id = db.insert("oil", null, values);
+                        Log.i("ADD: ", String.valueOf(id));
                         AddOilcost.this.finish();
                         break;
-                    case "3":
-                        DBopen(v);
-                        ContentValues valuesB = new ContentValues();
-                        valuesB.put("now_KM", SNowKm);
-                        valuesB.put("km_l", SKML);
-                        valuesB.put("nt_km", SNTL);
-                        valuesB.put("full_oil_nt", Snowcost);
-                        //values.put("date",date);
-                        Long idB = db.insert("oilB", null, valuesB);
-                        Log.i("ADD: ", String.valueOf(idB));
-                        AddOilcost.this.finish();
-                        break;
-                    case "4":
-                        DBopen(v);
-                        ContentValues valuesC = new ContentValues();
-                        valuesC.put("now_KM", SNowKm);
-                        valuesC.put("km_l", SKML);
-                        valuesC.put("nt_km", SNTL);
-                        valuesC.put("full_oil_nt", Snowcost);
-                        //values.put("date",date);
-                        Long idC = db.insert("oilC", null, valuesC);
-                        Log.i("ADD: ", String.valueOf(idC));
-                        AddOilcost.this.finish();
-                        break;
-                    case "5":
-                        DBopen(v);
-                        ContentValues valuesD = new ContentValues();
-                        valuesD.put("now_KM", SNowKm);
-                        valuesD.put("km_l", SKML);
-                        valuesD.put("nt_km", SNTL);
-                        valuesD.put("full_oil_nt", Snowcost);
-                        //values.put("date",date);
-                        Long idD = db.insert("oilD", null, valuesD);
-                        Log.i("ADD: ", String.valueOf(idD));
-                        AddOilcost.this.finish();
-                        break;
-                }
+                        case "2":
+                            DBopen(v);
+                            ContentValues valuesA = new ContentValues();
+                            valuesA.put("now_KM", SNowKm);
+                            valuesA.put("km_l", SKML);
+                            valuesA.put("nt_km", SNTL);
+                            valuesA.put("full_oil_nt", Snowcost);
+                            //values.put("date",date);
+                            Long idA = db.insert("oilA", null, valuesA);
+                            Log.i("ADD: ", String.valueOf(idA));
+                            AddOilcost.this.finish();
+                            break;
+                        case "3":
+                            DBopen(v);
+                            ContentValues valuesB = new ContentValues();
+                            valuesB.put("now_KM", SNowKm);
+                            valuesB.put("km_l", SKML);
+                            valuesB.put("nt_km", SNTL);
+                            valuesB.put("full_oil_nt", Snowcost);
+                            //values.put("date",date);
+                            Long idB = db.insert("oilB", null, valuesB);
+                            Log.i("ADD: ", String.valueOf(idB));
+                            AddOilcost.this.finish();
+                            break;
+                        case "4":
+                            DBopen(v);
+                            ContentValues valuesC = new ContentValues();
+                            valuesC.put("now_KM", SNowKm);
+                            valuesC.put("km_l", SKML);
+                            valuesC.put("nt_km", SNTL);
+                            valuesC.put("full_oil_nt", Snowcost);
+                            //values.put("date",date);
+                            Long idC = db.insert("oilC", null, valuesC);
+                            Log.i("ADD: ", String.valueOf(idC));
+                            AddOilcost.this.finish();
+                            break;
+                        case "5":
+                            DBopen(v);
+                            ContentValues valuesD = new ContentValues();
+                            valuesD.put("now_KM", SNowKm);
+                            valuesD.put("km_l", SKML);
+                            valuesD.put("nt_km", SNTL);
+                            valuesD.put("full_oil_nt", Snowcost);
+                            //values.put("date",date);
+                            Long idD = db.insert("oilD", null, valuesD);
+                            Log.i("ADD: ", String.valueOf(idD));
+                            AddOilcost.this.finish();
+                            break;
+                    }
             }
         });
     }

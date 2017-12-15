@@ -112,11 +112,16 @@ public class Information extends AppCompatActivity {
                 intent.putExtras(bundle);
                 startActivity(intent);
 
+
             }
         });
-
-
-
+/*
+        Intent intent_A = new Intent();
+        intent_A.setClass(Information.this, AddOilcost.class);
+        Bundle bundleA = new Bundle();
+        bundleA.putInt("pos",5);
+        intent_A.putExtras(bundleA);
+*/
 
     }
     public void delete(int id){

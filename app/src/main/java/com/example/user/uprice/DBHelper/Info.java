@@ -46,6 +46,9 @@ public class Info extends AppCompatActivity {
         datePicker = (DatePicker) findViewById(R.id.datePicker);
         ok = (Button) findViewById(R.id.OK);
         can = (Button) findViewById(R.id.cancel);
+
+
+
         dbHelper =new DBHelper(this, "contactsDB", null, 1);
         db = dbHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM contacts", null);
@@ -63,6 +66,7 @@ public class Info extends AppCompatActivity {
                             "最多只能產生五個個人車庫!", Toast.LENGTH_SHORT);
                     //顯示Toast
                     toast.show();
+
                 }
             }
         });
