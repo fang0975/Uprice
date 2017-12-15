@@ -2,13 +2,11 @@ package com.example.user.uprice.DBHelper;
 
 import android.annotation.TargetApi;
 import android.content.ContentValues;
-import android.content.Intent;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -20,9 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import java.text.NumberFormat;
-import com.example.user.uprice.MainActivity;
+
 import com.example.user.uprice.R;
+
+import java.text.NumberFormat;
 
 public class AddOilcost extends AppCompatActivity {
 
@@ -57,8 +56,14 @@ public class AddOilcost extends AppCompatActivity {
         oilprice_select();
 
         //get ID of contacts
-       Bundle bundle03 =this.getIntent().getExtras();
-       // String ID = bundle03.getString("pos");
+        Bundle bundle =this.getIntent().getExtras();
+        final String ID = bundle.getString("pos");
+
+
+        dbHelper =new DBHelper(this, "contactsDB", null, 1);
+        db = dbHelper.getReadableDatabase();
+        cursor = db.rawQuery("SELECT * FROM contacts", null);
+
         //calculate
         oilcost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,20 +90,68 @@ public class AddOilcost extends AppCompatActivity {
 
                 //nf.format()
 
-                    DBopen(v);
-                               // 寫入計算結果至DB
-                    ContentValues values = new ContentValues();
+                switch (ID) {
+                    case "1":
+                        DBopen(v);
+                        ContentValues values = new ContentValues();
                     values.put("now_KM", SNowKm);
                     values.put("km_l", SKML);
-                    values.put("nt_km",SNTL );
-                    values.put("full_oil_nt",Snowcost);
+                    values.put("nt_km", SNTL);
+                    values.put("full_oil_nt", Snowcost);
                     //values.put("date",date);
                     Long id = db.insert("oil", null, values);
                     Log.i("ADD: ", String.valueOf(id));
-
-
-                AddOilcost.this.finish();
-
+                    AddOilcost.this.finish();
+                    break;
+                    case "2":
+                        DBopen(v);
+                        ContentValues valuesA = new ContentValues();
+                        valuesA.put("now_KM", SNowKm);
+                        valuesA.put("km_l", SKML);
+                        valuesA.put("nt_km", SNTL);
+                        valuesA.put("full_oil_nt", Snowcost);
+                        //values.put("date",date);
+                        Long idA = db.insert("oilA", null, valuesA);
+                        Log.i("ADD: ", String.valueOf(idA));
+                        AddOilcost.this.finish();
+                        break;
+                    case "3":
+                        DBopen(v);
+                        ContentValues valuesB = new ContentValues();
+                        valuesB.put("now_KM", SNowKm);
+                        valuesB.put("km_l", SKML);
+                        valuesB.put("nt_km", SNTL);
+                        valuesB.put("full_oil_nt", Snowcost);
+                        //values.put("date",date);
+                        Long idB = db.insert("oilB", null, valuesB);
+                        Log.i("ADD: ", String.valueOf(idB));
+                        AddOilcost.this.finish();
+                        break;
+                    case "4":
+                        DBopen(v);
+                        ContentValues valuesC = new ContentValues();
+                        valuesC.put("now_KM", SNowKm);
+                        valuesC.put("km_l", SKML);
+                        valuesC.put("nt_km", SNTL);
+                        valuesC.put("full_oil_nt", Snowcost);
+                        //values.put("date",date);
+                        Long idC = db.insert("oilC", null, valuesC);
+                        Log.i("ADD: ", String.valueOf(idC));
+                        AddOilcost.this.finish();
+                        break;
+                    case "5":
+                        DBopen(v);
+                        ContentValues valuesD = new ContentValues();
+                        valuesD.put("now_KM", SNowKm);
+                        valuesD.put("km_l", SKML);
+                        valuesD.put("nt_km", SNTL);
+                        valuesD.put("full_oil_nt", Snowcost);
+                        //values.put("date",date);
+                        Long idD = db.insert("oilD", null, valuesD);
+                        Log.i("ADD: ", String.valueOf(idD));
+                        AddOilcost.this.finish();
+                        break;
+                }
             }
         });
     }
@@ -122,22 +175,22 @@ public class AddOilcost extends AppCompatActivity {
                 int pos =position;
                 switch (pos){
                     case 0://98
-                        selected_price_textview.setText("29.7");
+                        selected_price_textview.setText("29.6");
                     break;
                     case 1://95
-                        selected_price_textview.setText("27.7");
+                        selected_price_textview.setText("27.6");
 
                     break;
                     case 2://92
-                        selected_price_textview.setText("26.2");
+                        selected_price_textview.setText("26.1");
 
                     break;
                     case 3://酒精
-                        selected_price_textview.setText("27.7");
+                        selected_price_textview.setText("27.6");
 
                     break;
                     case 4://超柴
-                        selected_price_textview.setText("24.1");
+                        selected_price_textview.setText("23.9");
                     break;
                 }
             }
@@ -150,7 +203,7 @@ public class AddOilcost extends AppCompatActivity {
 
     }
     public void DBopen(View view) {
-            dbHelper =new DBHelper(this, "oilsDB", null, 1);
+            dbHelper =new DBHelper(this, "oilsDB.db", null, 1);
             db = dbHelper.getWritableDatabase();
 
     }

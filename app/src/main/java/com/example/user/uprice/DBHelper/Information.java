@@ -71,7 +71,7 @@ public class Information extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 final int pos = position;
-                cursor.moveToPosition(1);
+                cursor.moveToPosition(pos);
                 new AlertDialog.Builder(Information.this)
                         .setTitle("刪除")
                         .setMessage("確定要刪除此資料嗎")
@@ -111,12 +111,6 @@ public class Information extends AppCompatActivity {
                 );*/
                 intent.putExtras(bundle);
                 startActivity(intent);
-
-                Intent intent1 = new Intent();
-                intent1.setClass(Information.this, AddOilcost.class);
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("pos",String.valueOf(pos));
-                intent.putExtras(bundle1);
 
             }
         });

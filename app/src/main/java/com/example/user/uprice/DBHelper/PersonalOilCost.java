@@ -15,13 +15,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.user.uprice.R;
@@ -62,6 +60,7 @@ public class PersonalOilCost extends AppCompatActivity {
         oilcost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                
                 startActivity(new Intent(PersonalOilCost.this, AddOilcost.class));
             }
         });

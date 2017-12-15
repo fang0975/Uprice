@@ -10,4 +10,6 @@ public class StationModel {
     public String section;
     public String address;
     public String time;
+    public Double longitude;
+    public Double latitude;
 }

@@ -12,7 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.maps.MapFragment;
+import com.example.user.uprice.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  * Created by user on 2017/12/1.
  */
 
-public class TabFragment extends Fragment {
+public class TabFragment extends BaseFragment {
 
     ContentPagerAdapter contentPagerAdapter;
 
@@ -51,7 +51,7 @@ public class TabFragment extends Fragment {
     private void setView() {
         fragmentList= new ArrayList<>();
         fragmentList.add(new GasStationFragment());
-        fragmentList.add(new MapFragment());
+        fragmentList.add(new MapStationFragment());
         contentPagerAdapter = new ContentPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(contentPagerAdapter);
         viewPager.setOffscreenPageLimit(2);
@@ -61,8 +61,8 @@ public class TabFragment extends Fragment {
 
             }
         });
-        tabLayout.addTab(tabLayout.newTab().setText("Page one"));
-        tabLayout.addTab(tabLayout.newTab().setText("Page two"));
+        tabLayout.addTab(tabLayout.newTab().setText("地區查詢"));
+        tabLayout.addTab(tabLayout.newTab().setText("定位搜尋"));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

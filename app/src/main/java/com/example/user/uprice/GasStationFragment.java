@@ -1,6 +1,5 @@
 package com.example.user.uprice;
 
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
@@ -15,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.user.uprice.base.BaseFragment;
 import com.example.user.uprice.xmltojsonlib.XmlToJson;
 
 import org.json.JSONArray;
@@ -37,7 +37,7 @@ import okhttp3.Response;
  * Created by user on 2016/12/21.
  */
 
-public class GasStationFragment extends Fragment {
+public class GasStationFragment extends BaseFragment {
     View myView;
     private ArrayList<ArrayList<String>> TAIWAN = new ArrayList<>();
     private ArrayList<String> COUNTRY = new ArrayList<>();
@@ -45,7 +45,6 @@ public class GasStationFragment extends Fragment {
     private TextView textViewGS1;
     private TextView textViewGS2;
     public static final MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/soap+xml; charset=utf-8");
-    private ArrayList<StationModel> list = new ArrayList<>();
     private RecyclerView my_recycler_view;
     private ProgressDialog pd;
 
@@ -59,8 +58,7 @@ public class GasStationFragment extends Fragment {
         textViewGS1.setText("請選擇縣市");
         textViewGS2.setText("請選擇地區");
         pd = new ProgressDialog(getActivity());
-
-        getData();
+        if (getBaseApplication().getStationModelList() == null) getData();
         my_recycler_view = (RecyclerView) myView.findViewById(R.id.my_recycler_view);
         String str = getResources().getString(R.string.source);
         //Log.d("Source", str);
@@ -93,14 +91,14 @@ public class GasStationFragment extends Fragment {
                         textViewGS1.setText(COUNTRY.get(which));
                         textViewGS2.setText("請選擇地區");
                         ArrayList<StationModel> tmp = new ArrayList<StationModel>();
-                        for (StationModel i : list) {
+                        for (StationModel i : getBaseApplication().getStationModelList()) {
                             if (i.country.equals(COUNTRY.get(which))) {
                                 tmp.add(i);
-                                Log.d("Model",i.country);
+                                Log.d("Model", i.country);
                             }
-                            Log.d("Model",i.country);
+                            Log.d("Model", i.country);
                         }
-                        int V= 0;
+                        int V = 0;
                         ContactAdapter adapter = new ContactAdapter(tmp);
                         my_recycler_view.setAdapter(adapter);
                         my_recycler_view.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -132,12 +130,12 @@ public class GasStationFragment extends Fragment {
                         if (COUNTRY_INDEX != -1) {
                             textViewGS2.setText(TAIWAN.get(COUNTRY_INDEX).get(which));
                             ArrayList<StationModel> tmp = new ArrayList<StationModel>();
-                            for (StationModel i : list) {
+                            for (StationModel i : getBaseApplication().getStationModelList()) {
                                 if (i.section.equals(TAIWAN.get(COUNTRY_INDEX).get(which))) {
                                     tmp.add(i);
-                                    Log.d("Model",i.section);
+                                    Log.d("Model", i.section);
                                 }
-                                Log.d("Model",i.section);
+                                Log.d("Model", i.section);
                             }
                             ContactAdapter adapter = new ContactAdapter(tmp);
                             my_recycler_view.setAdapter(adapter);
@@ -176,16 +174,7 @@ public class GasStationFragment extends Fragment {
         pd.show();
         a = (textViewGS1.getText().toString().equals("請選擇縣市")) ? "" : textViewGS1.getText().toString();
         b = (textViewGS2.getText().toString().equals("請選擇地區")) ? "" : textViewGS2.getText().toString();
-        String postBody = "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">" +
-                "  <soap12:Body>" +
-                "    <QueryStation xmlns=\"http://tmtd.cpc.com.tw/\" />" +
-                "<City> " + a + " </City>" +
-                "<Village> " + b + " </Village>" +
-                "<Types></Types>" +
-                "<open24></open24>" +
-                "<queryitems></queryitems>" +
-                " </soap12:Body>" +
-                "</soap12:Envelope>";
+        String postBody = "<soap12:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">" + "  <soap12:Body>" + "    <QueryStation xmlns=\"http://tmtd.cpc.com.tw/\" />" + "<City> " + a + " </City>" + "<Village> " + b + " </Village>" + "<Types></Types>" + "<open24></open24>" + "<queryitems></queryitems>" + " </soap12:Body>" + "</soap12:Envelope>";
         Log.e("postBody", postBody);
         final RequestBody body = RequestBody.create(MEDIA_TYPE_MARKDOWN, postBody);
         OkHttpClient client = new OkHttpClient();
@@ -231,8 +220,8 @@ public class GasStationFragment extends Fragment {
         public void onBindViewHolder(ContactViewHolder contactViewHolder, int i) {
             StationModel ci = contactList.get(i);
             contactViewHolder.vName.setText(ci.name);
-            contactViewHolder.vAddress.setText("地址："+ci.address);
-            contactViewHolder.vTime.setText("營業時間："+ci.time);
+            contactViewHolder.vAddress.setText("地址：" + ci.address);
+            contactViewHolder.vTime.setText("營業時間：" + ci.time);
             //contactViewHolder.vTitle.setText(ci.name + " " + ci.surname);
         }
 
@@ -275,7 +264,7 @@ public class GasStationFragment extends Fragment {
             String jsonString = xmlToJson.toString();
             // convert to a formatted Json String
             String formatted = xmlToJson.toFormattedString();
-            list.clear();
+            getBaseApplication().setStationModelList(new ArrayList<StationModel>());
             try {
                 JSONObject JSObject = new JSONObject(formatted);
                 JSONObject tmp = JSObject.getJSONObject("soap:Envelope").getJSONObject("soap:Body").getJSONObject("QueryStationResponse").getJSONObject("QueryStationResult").getJSONObject("diffgr:diffgram").getJSONObject("NewDataSet");
@@ -287,7 +276,8 @@ public class GasStationFragment extends Fragment {
                     String time = model.optString("營業時間");
                     String country = model.optString("縣市");
                     String section = model.optString("鄉鎮區");
-
+                    Double longitude = model.optDouble("經度");
+                    Double latitude = model.optDouble("緯度");
 
                     StationModel model1 = new StationModel();
                     model1.name = name;
@@ -295,11 +285,13 @@ public class GasStationFragment extends Fragment {
                     model1.time = time;
                     model1.country = country;
                     model1.section = section;
-                    list.add(model1);
+                    model1.longitude = longitude;
+                    model1.latitude = latitude;
+                    getBaseApplication().getStationModelList().add(model1);
                 }
                 //Log.d("JSON",tmp.toString());
                 //Log.d("JSON", tmd.toString());
-                ContactAdapter adapter = new ContactAdapter(list);
+                ContactAdapter adapter = new ContactAdapter(getBaseApplication().getStationModelList());
                 my_recycler_view.setAdapter(adapter);
                 my_recycler_view.setLayoutManager(new LinearLayoutManager(getActivity()));
 
